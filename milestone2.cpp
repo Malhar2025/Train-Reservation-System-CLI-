@@ -31,12 +31,10 @@ public:
     
     vector<vector<string> > v = 
     { 
-        { {"17726"}, {"Rajkot-0"}, {"Ahmedabad-200"}, {"Vadodara-300"}, {"Surat-500"}, {"Mumbai-750"} },
-        { {"17726"}, {"S1-50"}, {"S2-72"}, {"B1-72"}, {"A1-48"}, {"H1-24"} },
         { {"37392"}, {"Ahmedabad-0"}, {"Anand-50"}, {"Vadodara-100"}, {"Bharuch-200"}, {"Surat-300"} },
-        { {"37392"}, {"S1-15"}, {"S2-20"}, {"S3-50"}, {"B1-36"}, {"B2-48"} },
+        { {"37392"}, {"S1-15"}, {"S2-20"}, {"S3-50"}, {"B1-36"}, {"B2-48"}, {"H1-5"} },
         { {"29772"}, {"Vadodara-0"}, {"Dahod-150"}, {"Indore-350"} },
-        { {"29772"}, {"S1-15"}, {"S2-20"}, {"S3-50"}, {"B1-36"}, {"B2-48"} }
+        { {"29772"}, {"S1-72"}, {"S2-72"}, {"B1-72"}, {"A1-48"} }
     };
 };
 
@@ -229,10 +227,7 @@ void bookTickets(int currentPNR)
                         info[count].push_back(tD.v[i][j-1]);
                         connect = 1;
                     }
-                    else
-                    {
-                        available++;
-                    }
+                    available++;
                     info[count].push_back(tD.v[i][j]);
                     temp2.push_back(to_string(i));
                     break;
@@ -313,6 +308,7 @@ void bookTickets(int currentPNR)
     int fare = calculateFare(bR.classType, distance, stoi(bR.passengersStr));
     cout << "\nPNR: " << currentPNR << endl;
     cout << "Fare: " << fare << endl;
+    cout << "CNF/"  << bR.passengersStr << endl;
 
     int required_seats = stoi(bR.passengersStr);
 
